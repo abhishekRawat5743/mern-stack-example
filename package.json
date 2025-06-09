@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "postinstall": "cd client && npm install && npm run build && cd ../server && npm install"
+    "start": "node mern/server/server.js",
+    "postinstall": "cd mern/client && npm install && npm run build && cd ../server && npm install"
   }, 
   "dependencies": {
     "dotenv": "^16.5.0"
