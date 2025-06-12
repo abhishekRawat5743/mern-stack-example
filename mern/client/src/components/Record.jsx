@@ -17,7 +17,7 @@ export default function Record() {
       if(!id) return;
       setIsNew(false);
       const response = await fetch(
-        `https://employee-record-dnhwb4cbh3cze9hf.westeurope-01.azurewebsites.net/${params.id.toString()}`
+        `https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/${params.id.toString()}`
       );
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -51,7 +51,7 @@ export default function Record() {
       let response;
       if (isNew) {
         // if we are adding a new record we will POST to /record.
-        response = await fetch("https://employee-record-dnhwb4cbh3cze9hf.westeurope-01.azurewebsites.net/record", {
+        response = await fetch("https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/record", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default function Record() {
         });
       } else {
         // if we are updating a record we will PATCH to /record/:id.
-        response = await fetch(`https://employee-record-dnhwb4cbh3cze9hf.westeurope-01.azurewebsites.net/record/${params.id}`, {
+        response = await fetch(`https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/record/${params.id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

@@ -4,20 +4,20 @@ describe("Web site availability", () => {
   });
   it("Sanity listings web site", () => {
     cy.visit(
-      "https://employee-record-dnhwb4cbh3cze9hf.westeurope-01.azurewebsites.net"
+      "https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/"
     );
     cy.contains("Create Record").should("exist");
   });
   it("Test Adding Employee listings", () => {
     cy.visit(
-      "https://employee-record-dnhwb4cbh3cze9hf.westeurope-01.azurewebsites.net/create"
+      "https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/create"
     );
     cy.get("#name").type("Employee1");
     cy.get("#position").type("Position1");
     cy.get("#positionIntern").click({ force: true });
     cy.contains("Create person").click({ force: true });
     cy.visit(
-      "https://employee-record-dnhwb4cbh3cze9hf.westeurope-01.azurewebsites.net"
+      "https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/"
     );
     cy.contains("Employee1").should("exist");
   });
