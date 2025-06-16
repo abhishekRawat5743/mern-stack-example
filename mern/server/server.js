@@ -13,6 +13,25 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const allowedOrigins = [
+  "https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net", // production frontend
+  "https://employeerecord-staging-b0fwgxb4cnaqayeg.westeurope-01.azurewebsites.net", // staging frontend
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow no-origin requests (e.g., curl, Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 // Serve frontend build
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
@@ -20,7 +39,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-app.use(cors());
 app.use(express.json());
 app.use("/record", records);
 
