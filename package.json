@@ -5,8 +5,9 @@
   "scripts": {
     "start": "node mern/server/server.js",
     "postinstall": "cd mern/client && npm install && npm run build && cd ../server && npm install"
-  }, 
+  },
   "dependencies": {
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "mongoose": "^8.15.2"
   }
 }

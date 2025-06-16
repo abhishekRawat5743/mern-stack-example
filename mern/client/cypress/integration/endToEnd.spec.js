@@ -10,7 +10,7 @@ describe("Web site availability", () => {
   });
   it("Test Adding Employee listings", () => {
     cy.visit(
-      "https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/create"
+      "https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/api/records/create"
     );
     cy.get("#name").type("Employee1");
     cy.get("#position").type("Position1");

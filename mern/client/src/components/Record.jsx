@@ -51,7 +51,7 @@ export default function Record() {
       let response;
       if (isNew) {
         // if we are adding a new record we will POST to /record.
-        response = await fetch("https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/record", {
+        response = await fetch("https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/api/records", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default function Record() {
         });
       } else {
         // if we are updating a record we will PATCH to /record/:id.
-        response = await fetch(`https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/record/${params.id}`, {
+        response = await fetch(`https://employeerecord-bdeehffccpg8d8gv.westeurope-01.azurewebsites.net/api/records/${params.id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

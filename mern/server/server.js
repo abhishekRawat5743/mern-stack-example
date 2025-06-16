@@ -1,9 +1,11 @@
 import express from "express";
+import mongoose from "mongoose";
 import cors from "cors";
 import records from "./routes/record.js";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import path from "path";
+import recordRoutes from "./routes/recordRoutes.js";
 
 dotenv.config({ path: "./config.env" });
 
@@ -31,6 +33,12 @@ app.use(
     credentials: true,
   })
 );
+
+// MongoDB connection
+mongoose.connect("mongodb+srv://abhi22:Noah5743@cluster.mongodb.net/employees");
+
+// Use the record routes
+app.use(recordRoutes);
 
 // Serve frontend build
 app.use(express.static(path.join(__dirname, "../client/dist")));
